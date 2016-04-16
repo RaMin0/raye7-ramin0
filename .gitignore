@@ -11,3 +11,7 @@
 /log/*
 !/log/.keep
 /tmp
+/routes.txt
+
+# Ignore private files.
+/config/database.yml
