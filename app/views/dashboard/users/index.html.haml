@@ -1,0 +1,20 @@
+%h2 Users
+- if @users.present?
+  %table{border: 1}
+    %thead
+      %tr
+        %th Name
+        %th Email
+        %th Joined at
+        %th Owned trips
+        %th Joined trips
+    %tbody
+      - @users.each do |user|
+        %tr
+          %td= user.name
+          %td= mail_to user.email
+          %td= l user.created_at, format: :long
+          %td= user.owned_trips.size
+          %td= user.joined_trips.size
+- else
+  %em No users yet.

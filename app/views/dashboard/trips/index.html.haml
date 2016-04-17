@@ -1,0 +1,20 @@
+%h2 Trips
+- if @trips.present?
+  %table{border: 1}
+    %thead
+      %tr
+        %th Source
+        %th Destination
+        %th Begins at
+        %th Owner
+        %th Joined users
+    %tbody
+      - @trips.each do |trip|
+        %tr
+          %td= trip.source_address
+          %td= trip.destination_address
+          %td= l trip.begins_at, format: :long
+          %td= trip.user.name
+          %td= trip.users.size
+- else
+  %em No trips yet.
