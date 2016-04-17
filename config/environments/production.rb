@@ -65,7 +65,7 @@ Rails.application.configure do
   # config.action_mailer.raise_delivery_errors = false
   config.action_mailer.default_url_options = { host: ENV['HOST_URL'] }
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = Rails.application.secrets.action_mailer
+  config.action_mailer.smtp_settings = Rails.application.secrets.action_mailer.symbolize_keys
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
@@ -79,4 +79,6 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  
+  raise Rails.application.secrets.action_mailer.symbolize_keys.inspect
 end
