@@ -1,0 +1,6 @@
+%h2 Add a trip
+= form_for @trip do |f|
+  = error_messages(f)
+  = render partial: 'form', locals: { f: f }
+  .actions
+    = f.submit 'Add'

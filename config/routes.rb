@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
   # Web
+  resources :trips do
+    member do
+      post :join, to: 'trip_users#create'
+      delete :leave, to: 'trip_users#destroy'
+    end
+  end
+  
   devise_for :users,
     path: '',
     path_names: { sign_in: 'login', sign_out: 'logout', password: 'forgot_password' },
