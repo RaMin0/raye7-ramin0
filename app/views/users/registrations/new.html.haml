@@ -1,0 +1,7 @@
+%h2 Register
+= form_for resource, as: resource_name, url: new_registration_path(resource_name) do |f|
+  = error_messages(f)
+  = render partial: 'users/registrations/fields', locals: { f: f }
+  .actions
+    = f.submit 'Register'
+= render 'users/shared/links'

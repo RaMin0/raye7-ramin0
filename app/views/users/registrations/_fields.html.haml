@@ -1,0 +1,47 @@
+.field
+  = f.label :name
+  %br/
+  = f.text_field :name, autofocus: true
+.field
+  = f.label :email
+  %br/
+  = f.email_field :email
+  - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+    %small awaiting confirmation for: #{resource.unconfirmed_email}
+.field
+  = f.label :password
+  - if @minimum_password_length
+    %em
+      (#{@minimum_password_length} characters minimum)
+  %br/
+  = f.password_field :password, autocomplete: 'off'
+  - if resource.persisted?
+    %small leave blank if you don't want to change it
+.field
+  = f.label :password_confirmation
+  %br/
+  = f.password_field :password_confirmation, autocomplete: 'off'
+.field
+  = f.label :home_address
+  %br/
+  = f.text_area :home_address
+.field
+  = f.label :home_latitude
+  %br/
+  = f.text_field :home_latitude
+.field
+  = f.label :home_longitude
+  %br/
+  = f.text_field :home_longitude
+.field
+  = f.label :work_address
+  %br/
+  = f.text_area :work_address
+.field
+  = f.label :work_latitude
+  %br/
+  = f.text_field :work_latitude
+.field
+  = f.label :work_longitude
+  %br/
+  = f.text_field :work_longitude
