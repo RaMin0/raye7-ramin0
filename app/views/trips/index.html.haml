@@ -1,0 +1,28 @@
+%h1 Upcoming trips
+- if @upcoming_trips.present?
+  %ul
+    - @upcoming_trips.each do |trip|
+      %li= render trip
+- else
+  %em
+    No upcoming trips.
+    
+%h1 Joined trips
+- if @joined_trips.present?
+  %ul
+    - @joined_trips.each do |trip|
+      %li= render trip
+- else
+  %em
+    No joined trips.
+
+%h1 My trips
+- if @owned_trips.present?
+  %ul
+    - @owned_trips.each do |trip|
+      %li= render trip
+- else
+  %em
+    No owned trips.
+
+%p= link_to 'Add a trip', new_trip_path
