@@ -1,0 +1,21 @@
+%dl.trip
+  %dt
+    %strong From:
+  %dd= trip.source_address
+  %dt
+    %strong To:
+  %dd= trip.destination_address
+  = link_to 'Details', trip, class: 'trip-details'
+  %dl.details
+    %dt
+      %strong Owner:
+    %dd= trip.user.name
+    %dt
+      %strong Begins at:
+    %dd= l trip.begins_at, format: :long
+  - if trip.user != current_user
+    - if trip.users.include?(current_user)
+      = link_to 'Leave', leave_trip_path(trip), method: :delete
+    - else
+      = link_to 'Join', join_trip_path(trip), method: :post
+
