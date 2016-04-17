@@ -13,5 +13,8 @@
 /tmp
 /routes.txt
 
+# Ignore db schema
+/db/schema.rb
+
 # Ignore private files.
 /config/database.yml

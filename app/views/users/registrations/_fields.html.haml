@@ -10,11 +10,10 @@
     %small awaiting confirmation for: #{resource.unconfirmed_email}
 .field
   = f.label :password
-  - if @minimum_password_length
-    %em
-      (#{@minimum_password_length} characters minimum)
   %br/
   = f.password_field :password, autocomplete: 'off'
+  - if @minimum_password_length
+    %small #{@minimum_password_length} characters minimum
   - if resource.persisted?
     %small leave blank if you don't want to change it
 .field
